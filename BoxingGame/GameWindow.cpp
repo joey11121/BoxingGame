@@ -1,10 +1,10 @@
 #include "GameWindow.h"
-#include "RoleMenu.h"
-#include "SceneMenu.h"
+
 
 bool draw = false;
 int window = 1; //window : 1 -> start menu, 2 -> role menu, 3 -> scene menu, 4 -> fighting, 5 -> KO, 6 -> Celebration!  
-
+int rolechoice[2]; //The index for the role choice of the 2 players.
+int scenechoice;
 const char* title = "Final Project Group 66";
 
 ALLEGRO_SAMPLE_INSTANCE* MenuSampleInstance = NULL, *DeathSampleInstance = NULL;
@@ -78,26 +78,30 @@ void game_begin() {
     al_set_sample_instance_gain(sample_instance, 1);
     al_play_sample_instance(sample_instance);
     al_start_timer(fps);
+    ALLEGRO_EVENT event;
     StartMenu a;
     judge_next_window = false;
     a.menu_draw();
     while (!judge_next_window) {
-        a.menu_process();
+        a.menu_process(event); 
     }
     game_update(); 
     a.menu_destroy();
     RoleMenu b;
-    while (!judge_next_window) {
-        b.menu_process();
+    judge_next_window = false;
+    b.menu_draw();
+    for (int i = 0; i < 1; i++) {
+        rolechoice[i] = b.role_selection(i);
     }
     game_update();
     b.menu_destroy();
     SceneMenu c;
-    while (!judge_next_window) {
-        c.menu_process();
-    }
+    judge_next_window = false;
+    c.menu_draw();
+    scenechoice = c.scene_selection();
     game_update();
     c.menu_destroy();
+    judge_next_window = false;
 }
 void game_update() {
     if (judge_next_window) {

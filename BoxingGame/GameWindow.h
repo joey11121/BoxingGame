@@ -2,6 +2,8 @@
 #include "Role.h"
 #include "Scene.h"
 #include "StartMenu.h"
+#include "RoleMenu.h"
+#include "SceneMenu.h"
 
 void game_update();
 int process_event();

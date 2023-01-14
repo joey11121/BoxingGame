@@ -1,26 +1,22 @@
 #pragma once
-#include <allegro5/allegro.h>
 #include "Global.h"
-using namespace std;
 
 class RoleMenu
-{public:
+{
+private:
+    ALLEGRO_FONT* font;
+    int roletotal; //一號選角或二號選角
+public:
     RoleMenu() {
         font = al_load_ttf_font("/font/pirulen", 12, 0);
+        roletotal = 2;
     }
-    void menu_process(ALLEGRO_EVENT event)
-    {
-        if (event.type == ALLEGRO_EVENT_KEY_UP) {
-            if (event.keyboard.keycode == ALLEGRO_KEY_ENTER) {
-                judge_next_window = true;
-            }
-        }
-        return;
-    }
+
+    int role_selection(int rolenum);
 
     void menu_draw()
     {
-        ALLEGRO_BITMAP* img = al_load_bitmap("intro.png"); //我們要自己畫。
+        ALLEGRO_BITMAP* img = al_load_bitmap("RoleMenu.png"); //Todo: 找一張圖片可以當RoleMenu背景。
         assert(img != NULL);
         al_draw_bitmap(img, 0, 0, 0);
     }
@@ -29,6 +25,4 @@ class RoleMenu
     {
         al_destroy_font(font);
     }
-private:
-    ALLEGRO_FONT* font;
 };
