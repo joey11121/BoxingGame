@@ -1,12 +1,6 @@
 # BoxingGame
-Final project for I2P2 2022 Fall
+Final project for I2P2 2022 Fall, written in C++ & Allegro 5
 
-##Header Files：
-Role.h -> For the role settings
-Menu.h -> For the menu settings
-##src files：
-Role.cpp
-menu.cpp
-main.cpp
+
 
 
