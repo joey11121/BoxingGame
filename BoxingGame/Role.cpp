@@ -24,6 +24,13 @@ int Role::getDefense() {
 	return Defense;
 }
 
+int Role::getWidth(int x2, x1) {
+	return x2 - x1; 
+}
+
+int Role::getHeight(int y2, y1) {
+	return y2 - y1;
+}
 
 //HP Control
 bool Role::substractHP(int Harm_point) {
@@ -110,5 +117,4 @@ void Role::release_ability() {
 	}
 	//放技能狀態結束後變回idle。
 }
-
 

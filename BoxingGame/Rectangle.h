@@ -1,6 +1,6 @@
 #ifndef RECT_H_INCLUDED
 #define RECT_H_INCLUDED
-#include <allegro5/allegro.h>
+#include "Global.h"
 
 class Rectangle {
 public:

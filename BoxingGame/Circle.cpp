@@ -1,7 +1,6 @@
 #include "Circle.h"
 #include "Rectangle.h"
-#include <stdlib.h>
-#include <algorithm>
+#include "Global.h"
 using namespace std;
 //圓形與長方形相交的判斷，主要是用在攻擊特效是否有打到敵人。
 bool Circle::isOverlap(Circle *circle, Rectangle *rectangle)
